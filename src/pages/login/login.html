@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Login</ion-title>
+    <ion-buttons end *ngIf="canDelete">
+      <button ion-button (click)="delete()">
+        <ion-icon name="trash"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+
+    <ion-item class="center">
+      <ion-label color="primary" floating>First Name</ion-label>
+      <ion-input text-center [(ngModel)]="curUser.firstName"></ion-input>
+    </ion-item>
+    <ion-item class="center">
+      <ion-label color="primary" floating>Last Name</ion-label>
+      <ion-input text-center [(ngModel)]="curUser.lastName"></ion-input>
+    </ion-item>
+  </ion-list>
+  <ion-item class="center">
+    <button ion-button round outline (click)="checkLogin()">Login</button>
+    <button ion-button round outline (click)="goRegister()">No login yet? Register here!</button>
+  </ion-item>
+</ion-content>

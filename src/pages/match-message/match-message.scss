@@ -1,0 +1,14 @@
+page-match-message {
+    .center{
+        display: table !important;
+        width: 100% !important;
+        height: 100% !important;
+        
+        display: table-cell;
+        vertical-align:  middle;
+        text-align: center;
+    }
+    .nonDraggableImage{
+        -webkit-user-drag: none;
+    }
+}

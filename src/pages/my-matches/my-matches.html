@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      My Matches
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-list>
+    <button ion-button round outline (click)="goHome()">Home</button>
+    <button ion-button round outline (click)="showCurUser()">Profile</button>
+    <button ion-button round outline (click)="goMyLikers()">My Likers</button>
+    <button ion-button round outline (click)="goUsersManager()" *ngIf="curUser && curUser.doc.isAdmin">Manage Users</button>
+
+    <ion-item class=center *ngFor="let user of matches" (click)="goChat(user)">
+      
+      <img height="50" width="50" class=nonDraggableImage src="{{getPic(user)}}">
+      <div>
+        <h3>{{getFirstName(user)}} {{getLastName(user)}}</h3>
+      </div>
+    </ion-item>
+  </ion-list>
+</ion-content>

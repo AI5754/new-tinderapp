@@ -1,0 +1,26 @@
+<ion-header>
+    <ion-navbar>
+      <ion-title>
+        Chat
+      </ion-title>
+      <ion-buttons end>
+        
+      </ion-buttons>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content padding>
+    <ion-list>
+      <div class="center"> 
+        <h3>You can now chat with {{getFirstName()}} {{getLastName()}}</h3>
+      </div>
+
+      <ion-item class=center>
+        <img height="50" width="50" class=nonDraggableImage src="{{getPic()}}">        
+      </ion-item>
+
+      <ion-item>
+        <button ion-button round outline (click)="closeModal()">Close</button>
+      </ion-item>
+    </ion-list>
+  </ion-content>

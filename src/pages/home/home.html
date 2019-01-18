@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Home
+    </ion-title>
+    <ion-buttons end>
+      
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding ngDraggable="false">
+
+  <ion-list>
+    <button ion-button round outline (click)="showCurUser()">Profile</button>
+    <button ion-button round outline (click)="goMyLikers()">My likers</button>
+    <button ion-button round outline (click)="goMyMatches()">My matches</button>
+    <button ion-button round outline (click)="goUsersManager()" *ngIf="curUser && curUser.doc.isAdmin">Manage Users</button>
+
+    <ion-item class=center *ngFor="let user of usersToShow" (swipe)="swiped($event, user)">
+
+      <img height="50" width="50" class=nonDraggableImage src="{{getPic(user)}}">
+      <div> 
+        <h3>{{getFirstName(user)}} {{getLastName(user)}}</h3>
+      </div>
+    </ion-item>
+  </ion-list>
+</ion-content>

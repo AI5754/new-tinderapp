@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>You have a match!</ion-title>
+    <ion-buttons end *ngIf="canDelete">
+      <button ion-button (click)="delete()">
+        <ion-icon name="trash"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-item class=center>
+
+    <img height="50" width="50" class=nonDraggableImage src="{{getPic()}}">
+    <div>
+      <h3>{{matcher.doc.firstName}} {{matcher.doc.lastName}}</h3>
+    </div>
+    <button ion-button round outline (click)="closeModal()">Later</button>
+    <button ion-button round outline (click)="goChat()">Chat with {{matcher.doc.firstName}} {{matcher.doc.lastName}}</button>
+  </ion-item>
+</ion-content>

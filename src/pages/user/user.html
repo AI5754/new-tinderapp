@@ -1,0 +1,74 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title *ngIf="user.canUpdate">User Information</ion-title>
+    <ion-title *ngIf="!user.canUpdate">Register</ion-title>
+    <ion-buttons end *ngIf="canUpdate">
+      <button ion-button (click)="delete()">
+        <ion-icon name="trash"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<img [src]=""/>
+
+<ion-content>
+  <ion-item class=center *ngIf="user._id">
+    <img height="50" width="50" class=nonDraggableImage src="{{getPic()}}">
+  </ion-item>
+
+  <ion-list>
+    <ion-item class="center">
+      <ion-label color="primary" floating>First Name</ion-label>
+      <ion-input text-center type="text" [(ngModel)]="user.firstName"></ion-input>
+    </ion-item>
+    <ion-item class="center">
+      <ion-label color="primary" floating>Last Name</ion-label>
+      <ion-input text-center type="text" [(ngModel)]="user.lastName"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="curUser && curUser.doc.isAdmin">
+      <ion-label>Admin</ion-label>
+      <ion-checkbox [(ngModel)]="user.isAdmin"></ion-checkbox>
+    </ion-item>
+  </ion-list>
+
+  <ion-list radio-group [(ngModel)]="user.gender">
+    <ion-list-header color="primary">
+      Gender
+    </ion-list-header>
+    <ion-item>
+      <ion-label>Male</ion-label>
+      <ion-radio value="male" checked></ion-radio>
+    </ion-item>
+    <ion-item>
+      <ion-label>Female</ion-label>
+      <ion-radio value="female"></ion-radio>
+    </ion-item>
+  </ion-list>
+
+  <ion-list radio-group [(ngModel)]="user.preferredGender">
+    <ion-list-header color="primary">
+      Preferred Gender
+    </ion-list-header>
+    <ion-item>
+      <ion-label>Male</ion-label>
+      <ion-radio value="male" checked></ion-radio>
+    </ion-item>
+    <ion-item>
+      <ion-label>Female</ion-label>
+      <ion-radio value="female"></ion-radio>
+    </ion-item>
+    <ion-item>
+      <ion-label>Doesn't mind</ion-label>
+      <ion-radio value="all"></ion-radio>
+    </ion-item>
+  </ion-list>
+
+  <div class=center>
+    <ion-label class=center *ngIf="showErrorMessage" style="color:red">Firstname, lastname, gender and preferred gender
+      are required</ion-label>
+    <button ion-button round outline (click)="takeDefaultPic()">Default pic</button>
+    <button ion-button round outline (click)="takePhoto()">Take photograph</button>
+    <button ion-button round outline (click)="selectPhoto()">Select photograph</button>
+    <button ion-button round outline (click)="addOrUpdate()" *ngIf="hasPic">Add/Update User</button><br />
+  </div>
+</ion-content>
